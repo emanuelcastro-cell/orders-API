@@ -62,4 +62,9 @@ public class OrderController {
 	public ResponseEntity<?> findOrder(@PathVariable Long id){
 		return repository.findById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
 	}
+
+	@GetMapping
+	public ResponseEntity<?> listOrders(){
+		return ResponseEntity.ok(repository.findAll());
+	}
 }
